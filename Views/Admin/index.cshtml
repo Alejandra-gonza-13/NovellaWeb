@@ -1,105 +1,175 @@
 @model NovellaWeb.Models.DashboardViewModel
 
-<h1>Admin Dashboard</h1>
-
-<hr />
-
-<h2>Overview</h2>
-
-<div>
-    <h3>Total Revenue</h3>
-    <p>$@Model.TotalRevenue.ToString("F2")</p>
-</div>
-
-<div>
-    <h3>Total Books</h3>
-    <p>@Model.TotalBooks</p>
-</div>
-
-<div>
-    <h3>Total Orders</h3>
-    <p>@Model.TotalOrders</p>
-</div>
-
-<div>
-    <h3>Total Customers</h3>
-    <p>@Model.TotalCustomers</p>
-</div>
-
-<hr />
-
-<h2>Monthly Sales</h2>
-
-@if (Model.MonthlySales.Count == 0)
-{
-    <p>No sales yet.</p>
-}
-else
-{
-    <table>
-        <thead>
-            <tr>
-                <th>Month</th>
-                <th>Revenue</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            @foreach (var sale in Model.MonthlySales)
-            {
-                <tr>
-                    <td>@sale.Month</td>
-                    <td>$@sale.Revenue.ToString("F2")</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+@{
+    ViewData["Title"] = "Admin Dashboard";
 }
 
-<hr />
+<div class="container py-4" style="background-color: #F5F1E7;">
 
-<h2>Best-selling Books</h2>
+    <h1 style="color: #183E33; font-family: Georgia;">
+        Admin Dashboard
+    </h1>
 
-@if (Model.BestSellingBooks.Count == 0)
-{
-    <p>No purchases yet.</p>
-}
-else
-{
-    <table>
-        <thead>
-            <tr>
-                <th>Book Title</th>
-                <th>Quantity Sold</th>
-            </tr>
-        </thead>
+    <p class="text-muted">Overview of your bookstore.</p>
 
-        <tbody>
-            @foreach (var book in Model.BestSellingBooks)
-            {
-                <tr>
-                    <td>@book.Title</td>
-                    <td>@book.QuantitySold</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+    <hr />
 
-<hr />
+    <h2 style="color: #183E33;">Overview</h2>
 
-<h2>Management</h2>
+    <div class="row g-3 mb-4">
 
-<div>
-    <a asp-controller="Books" asp-action="Index">
-        Manage Books
-    </a>
-</div>
+        <div class="col-md-3">
+            <div class="card p-3 h-100">
+                <h5 style="color: #183E33;">Total Revenue</h5>
+                <h3>$@Model.TotalRevenue.ToString("F2")</h3>
+            </div>
+        </div>
 
-<div>
-    <p>Manage Orders - Coming soon</p>
-</div>
+        <div class="col-md-3">
+            <div class="card p-3 h-100">
+                <h5 style="color: #183E33;">Total Books</h5>
+                <h3>@Model.TotalBooks</h3>
+            </div>
+        </div>
 
-<div>
-    <p>Manage Users - Coming soon</p>
+        <div class="col-md-3">
+            <div class="card p-3 h-100">
+                <h5 style="color: #183E33;">Total Orders</h5>
+                <h3>@Model.TotalOrders</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card p-3 h-100">
+                <h5 style="color: #183E33;">Total Customers</h5>
+                <h3>@Model.TotalCustomers</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card p-4 mb-4">
+
+        <h3 style="color: #183E33;">Monthly Sales</h3>
+
+        @if (Model.MonthlySales.Count == 0)
+        {
+            <p>No sales yet.</p>
+        }
+        else
+        {
+            <table class="table align-middle">
+
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Revenue</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var sale in Model.MonthlySales)
+                    {
+                        <tr>
+                            <td>@sale.Month</td>
+                            <td>$@sale.Revenue.ToString("F2")</td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        }
+
+    </div>
+
+    <div class="card p-4 mb-4">
+
+        <h3 style="color: #183E33;">Best-selling Books</h3>
+
+        @if (Model.BestSellingBooks.Count == 0)
+        {
+            <p>No purchases yet.</p>
+        }
+        else
+        {
+            <table class="table align-middle">
+
+                <thead>
+                    <tr>
+                        <th>Book Title</th>
+                        <th>Quantity Sold</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var book in Model.BestSellingBooks)
+                    {
+                        <tr>
+                            <td>@book.Title</td>
+                            <td>@book.QuantitySold</td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        }
+
+    </div>
+
+    <h2 style="color: #183E33;">Management</h2>
+
+    <div class="row g-3">
+
+        <div class="col-md-4">
+            <div class="card p-3 h-100">
+
+                <h4 style="color: #183E33;">Manage Books</h4>
+
+                <p>Add, edit and delete books.</p>
+
+                <a asp-controller="Books"
+                   asp-action="Index"
+                   class="btn"
+                   style="background-color: #183E33; color: white;">
+                    Manage Books
+                </a>
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-3 h-100">
+
+                <h4 style="color: #183E33;">Manage Orders</h4>
+
+                <p>View customer orders and details.</p>
+
+                <a asp-controller="Orders"
+                   asp-action="Index"
+                   class="btn"
+                   style="background-color: #183E33; color: white;">
+                    Manage Orders
+                </a>
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-3 h-100">
+
+                <h4 style="color: #183E33;">Manage Users</h4>
+
+                <p>View customer information.</p>
+
+                <button class="btn"
+                        style="background-color: #BD964F;"
+                        disabled>
+                    Coming soon
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
 </div>

@@ -1,0 +1,77 @@
+@model NovellaWeb.Models.Order
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+<div class="container py-4">
+
+    <h2 style="color: #183E33; font-family: Georgia;">
+        Order Details
+    </h2>
+
+    <p class="text-muted">
+        View customer order information.
+    </p>
+
+    <div class="card p-4"
+         style="background-color: #F5F1E7;">
+
+        <h4 style="color: #183E33;">
+            Order #@Model.Id
+        </h4>
+
+        <hr />
+
+        <dl class="row">
+
+            <dt class="col-sm-4">Order ID</dt>
+            <dd class="col-sm-8">@Model.Id</dd>
+
+            <dt class="col-sm-4">Customer ID</dt>
+            <dd class="col-sm-8">@Model.CustomerId</dd>
+
+            <dt class="col-sm-4">Customer Email</dt>
+            <dd class="col-sm-8">@Model.CustomerEmail</dd>
+
+            <dt class="col-sm-4">Order Date</dt>
+            <dd class="col-sm-8">
+                @Model.OrderDate.ToString("MMMM dd, yyyy")
+            </dd>
+
+            <dt class="col-sm-4">Total</dt>
+            <dd class="col-sm-8">
+                $@Model.Total.ToString("F2")
+            </dd>
+
+            <dt class="col-sm-4">Status</dt>
+            <dd class="col-sm-8">
+
+                @if (Model.Status == "Paid")
+                {
+                    <span class="badge"
+                          style="background-color: #183E33;">
+                        Paid
+                    </span>
+                }
+                else
+                {
+                    <span class="badge"
+                          style="background-color: #BD964F; color: #222222;">
+                        @Model.Status
+                    </span>
+                }
+
+            </dd>
+
+        </dl>
+
+    </div>
+
+    <a asp-action="Index"
+       class="btn mt-3"
+       style="background-color: #183E33; color: white;">
+        Back to Orders
+    </a>
+
+</div>
