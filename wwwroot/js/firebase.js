@@ -18,7 +18,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 const firebaseConfig = {
-  apiKey: "",
+  apiKey: "AIzaSyB8BSvUsiMU7NlerhAtf0Y6PXCZmvhNeaM",
   authDomain: "novella-bookstore.firebaseapp.com",
   databaseURL: "https://novella-bookstore-default-rtdb.firebaseio.com",
   projectId: "novella-bookstore",
@@ -51,3 +51,20 @@ export async function deleteImage(url) {
     console.warn("Image delete failed", e);
   }
 }
+
+export async function uploadPdf(file) {
+  const r = storageRef(storage, `book-pdfs/${crypto.randomUUID()}`);
+  await uploadBytes(r, file);
+  return getDownloadURL(r);
+}
+
+export async function deletePdf(url) {
+  if (!url) return;
+  try {
+    await deleteObject(storageRef(storage, url));
+  } catch (e) {
+    console.warn("PDF delete failed", e);
+  }
+} 
+
+
