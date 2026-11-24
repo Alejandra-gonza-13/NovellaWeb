@@ -17,6 +17,9 @@ public class BooksController : Controller
 
     // Open the Delete Book page
     public IActionResult Delete(string id) => View(new Book { Id = id });
+
+    // Open Book Details using the Firebase book ID
+    public IActionResult Details(string id) => View(new Book { Id = id });
 }
 
 

@@ -1,0 +1,104 @@
+@model NovellaWeb.Models.Book
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<div class="container p-4 rounded"
+     style="background-color:#F5F1E7;"
+     id="book-details"
+     data-id="@Model.Id">
+
+    <!-- Book Information -->
+    <h2 style="color:#183E33; font-family:Georgia;">
+        Book Details
+    </h2>
+
+    <div id="error" class="alert alert-danger d-none"></div>
+    <div id="message" class="alert alert-success d-none"></div>
+
+    <div class="row mt-4 mb-4">
+
+        <!-- Book Cover -->
+        <div class="col-md-4 text-center">
+            <img id="book-cover"
+                 class="img-fluid rounded d-none"
+                 style="max-height:300px;"
+                 alt="Book Cover" />
+        </div>
+
+        <!-- Book Details -->
+        <div class="col-md-8">
+            <h3 id="book-title" style="color:#183E33;"></h3>
+
+            <p id="book-author"></p>
+            <p id="book-genre"></p>
+            <p id="book-description"></p>
+
+            <h4 id="book-price" style="color:#BD964F;"></h4>
+        </div>
+
+    </div>
+
+    <hr />
+
+    <!-- Ratings and Comments -->
+    <h3 style="color:#183E33; font-family:Georgia;">
+        Ratings & Comments
+    </h3>
+
+    <p id="average-rating">No ratings yet.</p>
+
+    <!-- Write a Review -->
+    <div class="card p-4 my-4">
+
+        <h4 style="color:#183E33;">Write a Review</h4>
+
+        <form id="review-form">
+
+            <div class="mb-3">
+                <label class="form-label">Your Rating</label>
+
+                <select id="rating" class="form-select" required>
+                    <option value="">Select a rating</option>
+                    <option value="5">★★★★★ - 5 Stars</option>
+                    <option value="4">★★★★☆ - 4 Stars</option>
+                    <option value="3">★★★☆☆ - 3 Stars</option>
+                    <option value="2">★★☆☆☆ - 2 Stars</option>
+                    <option value="1">★☆☆☆☆ - 1 Star</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Your Comment</label>
+
+                <textarea id="comment"
+                          class="form-control"
+                          rows="4"
+                          placeholder="Share your thoughts about this book..."
+                          required></textarea>
+            </div>
+
+            <button type="submit"
+                    class="btn text-white"
+                    style="background-color:#183E33;">
+                Submit Review
+            </button>
+
+        </form>
+    </div>
+
+    <!-- Customer Reviews -->
+    <h4 style="color:#183E33;">Customer Reviews</h4>
+
+    <div id="reviews-list">
+        <p>No reviews yet.</p>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script type="module"
+            src="~/js/book-details.js"
+            asp-append-version="true"></script>
+}
