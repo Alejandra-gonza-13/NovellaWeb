@@ -1,12 +1,22 @@
-@model List<NovellaWeb.Models.Book>
+@{
+    ViewData["Title"] = "Manage Books";
+}
+<div class="container p-4 rounded"
+     style="background-color:#F5F1E7;">
+<h2 style="color:#183E33;">Manage Books</h2>
+<div id="message" class="alert alert-success d-none"></div>
+<div id="error" class="alert alert-danger d-none"></div>
+ <p>
+ <a asp-action="Create" class="btn text-white"
+   style="background-color:#183E33;">
+    Add New Book
+ </a>
+</p>
 
-<h1>Manage Books</h1>
-
-<a asp-action="Create">Add New Book</a>
-
-<table>
+ <table class="table align-middle">
     <thead>
         <tr>
+            <th>Cover</th>
             <th>Title</th>
             <th>Author</th>
             <th>Genre</th>
@@ -14,21 +24,40 @@
             <th>Actions</th>
         </tr>
     </thead>
+        <tbody id="books-body"></tbody>
+    </table>
 
-    <tbody>
-        @foreach (var book in Model)
-        {
-            <tr>
-                <td>@book.Title</td>
-                <td>@book.Author</td>
-                <td>@book.Genre</td>
-                <td>@book.Price</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@book.Id">Edit</a>
-                    |
-                    <a asp-action="Delete" asp-route-id="@book.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <template id="book-row-template">
+        <tr>
+            <td>
+                <img data-field="cover"
+                     style="height:60px"
+                     class="d-none" />
+            </td>
+            <td data-field="title"></td>
+            <td data-field="author"></td>
+            <td data-field="genre"></td>
+            <td>$<span data-field="price"></span></td>
+            <td>
+                <a data-field="edit"
+                   data-url="@Url.Action("Edit", new { id = "__ID__" })"
+                   class="btn btn-sm btn-outline-secondary">
+                    Edit
+                </a>
+
+                <a data-field="delete"
+                   data-url="@Url.Action("Delete", new { id = "__ID__" })"
+                   class="btn btn-sm btn-outline-danger">
+                    Delete
+                </a>
+            </td>
+        </tr>
+    </template>
+
+</div>
+
+@section Scripts {
+    <script type="module"
+            src="~/js/books-list.js"
+            asp-append-version="true"></script>
+}
