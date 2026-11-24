@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="auth-container">
+    <h1>Edit Profile</h1>
+
+    <form id= "editForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required />
+
+        <div id="message" class="message"></div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    <div class="text-center">
+        <a href="/Account/Profile">Back to Profile</a>
+   </div>
+</div>
+
+@section Scripts {
+    <script type="module" src="~/js/EditProfile.js"></script>
+}

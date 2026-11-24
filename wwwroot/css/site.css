@@ -127,3 +127,13 @@ a:hover {
   color: #8B2E2E;
   text-align: center;
 }
+
+/* Profile buttons: same space between all of them */
+.auth-container .profile-buttons .btn {
+  width: 100%;
+  margin: 0 0 12px 0;
+}
+
+.auth-container .profile-buttons {
+  margin-top: 24px;
+}
