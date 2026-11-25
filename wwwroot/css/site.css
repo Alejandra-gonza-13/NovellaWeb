@@ -29,3 +29,111 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+/* diseno porject*/
+body {
+  background-color: #F5F1E7;
+  color: #183E33;
+}
+
+.navbar {
+  background-color: #FFFFFF !important;
+}
+
+.navbar-brand {
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #183E33 !important;
+}
+
+.nav-link {
+  color: #183E33 !important;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, serif;
+  color: #183E33;
+}
+
+/* Login, Register, Forgot Password box */
+.auth-container {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 32px;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.auth-container h1 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.auth-container label {
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.auth-container .btn-primary {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+
+.auth-container .text-center {
+  margin-top: 8px;
+}
+
+/* Green buttons */
+.btn-primary {
+  background-color: #183E33;
+  border-color: #183E33;
+  border-radius: 25px;
+}
+
+.btn-primary:hover {
+  background-color: #0F2A22;
+  border-color: #0F2A22;
+}
+
+/* Gold button (like Log out in Android) */
+.btn-gold {
+  background-color: #CFBA94;
+  color: #183E33;
+  border-radius: 25px;
+}
+
+.btn-gold:hover {
+  background-color: #BFA67A;
+  color: #183E33;
+}
+
+/* Links */
+a {
+  color: #183E33;
+  font-weight: 600;
+}
+
+a:hover {
+  color: #0F2A22;
+}
+
+/* Error / info message */
+.message {
+  margin-top: 12px;
+  color: #8B2E2E;
+  text-align: center;
+}
+
+/* Profile buttons: same space between all of them */
+.auth-container .profile-buttons .btn {
+  width: 100%;
+  margin: 0 0 12px 0;
+}
+
+.auth-container .profile-buttons {
+  margin-top: 24px;
+}
