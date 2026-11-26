@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Your Cart";
+}
+
+<div class="text-center">
+    <h1 class="display-5">Your Cart 🛒</h1>
+</div>
+
+<div id="cartGrid" class="book-grid"></div>
+
+<div class="auth-container text-center" id="cartSummary" style="display:none;">
+    <h4>Total: <span id="cartTotal" style="color:#BD964F;"></span></h4>
+    <a id="checkoutButton" href="#" class="btn btn-primary w-100 mt-3">Proceed to checkout →</a>
+</div>
+
+@section Scripts {
+    <script type="module" src="~/js/Cart.js"></script>
+}
