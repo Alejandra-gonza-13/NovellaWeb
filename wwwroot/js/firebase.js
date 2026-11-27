@@ -47,6 +47,10 @@ export const storage = getStorage(app);
 export const booksRef = ref(db, "books");
 export const bookRef = (id) => ref(db, `books/${id}`);
 
+export const ordersRef = ref(db, "orders");
+export const orderRef = (id) => ref(db, `orders/${id}`);
+
+
 export async function uploadImage(file) {
   const r = storageRef(storage, `book-covers/${crypto.randomUUID()}`);
   await uploadBytes(r, file);
