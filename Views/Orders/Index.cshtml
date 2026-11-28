@@ -4,6 +4,7 @@
 
 <div class="container py-4">
 
+    <!-- Page title -->
     <h2 style="color: #183E33; font-family: Georgia;">
         Manage Orders
     </h2>
@@ -14,7 +15,64 @@
 
     <div class="card p-3" style="background-color: #F5F1E7;">
 
+        <!-- Search customer orders -->
+        <div class="mb-3">
+            <input
+                type="text"
+                id="searchOrders"
+                class="form-control"
+                placeholder="Search by customer email or order ID..." />
+        </div>
+
+        <!-- Order statistics -->
+        <div class="row mb-4">
+
+            <div class="col-md-4 mb-2">
+                <div class="card p-3">
+                    <h6>Total Orders</h6>
+                    <h3 id="totalOrders" style="color: #183E33;">
+                        0
+                    </h3>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-2">
+                <div class="card p-3">
+                    <h6>Paid Orders</h6>
+                    <h3 id="paidOrders" style="color: #183E33;">
+                        0
+                    </h3>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-2">
+                <div class="card p-3">
+                    <h6>Recorded Revenue</h6>
+                    <h3 id="ordersRevenue" style="color: #183E33;">
+                        $0.00
+                    </h3>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Filter orders by status -->
+        <div class="mb-3">
+            <label for="filterOrderStatus" class="form-label">
+                Filter by Status
+            </label>
+
+            <select id="filterOrderStatus" class="form-select">
+                <option value="All">All Orders</option>
+                <option value="Paid">Paid</option>
+                <option value="Pending">Pending</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+        </div>
+
+        <!-- Orders table -->
         <div class="table-responsive">
+
             <table class="table align-middle">
 
                 <thead>
@@ -37,14 +95,17 @@
                 </tbody>
 
             </table>
+
         </div>
 
     </div>
 
+    <!-- Firebase error message -->
     <div id="orders-error"
          class="alert alert-danger d-none mt-3">
     </div>
 
+    <!-- Back to Dashboard -->
     <a asp-controller="Admin"
        asp-action="Index"
        class="btn mt-3"
