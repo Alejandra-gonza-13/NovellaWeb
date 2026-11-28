@@ -5,8 +5,9 @@ namespace NovellaWeb.Controllers
 {
     public class CartController : Controller
     {
-        // ⚠️ Put your Stripe SECRET key here to test.
-        // ERASE IT (leave "") before commit, like the teacher said!
+        // Stripe SECRET key here to test.
+        // ERASE IT (leave "") before commit
+        
         private const string SecretKey = "";
         private const string CheckoutURL = "https://api.stripe.com/v1/checkout/sessions";
 
