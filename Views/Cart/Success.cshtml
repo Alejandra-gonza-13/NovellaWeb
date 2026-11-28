@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "Payment Confirmed";
+
+}
+
+<div class="auth-container text-center">
+    <p style="color:#BD964F; font-weight:bold;">PAYMENT CONFIRMED</p>
+    <h1>Your books are ready.</h1>
+    <p id="successMessage">Saving your order...</p>
+    <h4 id="orderTotal" style="color:#BD964F;"></h4>
+
+    <a href="/Home/Index" class="btn btn-primary w-100 mt-3">Continue browsing</a>
+</div>
+
+@section Scripts {
+    <script type="module" src="~/js/Success.js"></script>
+}
